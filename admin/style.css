@@ -1,0 +1,114 @@
+:root {
+    --primary: #0066CC;
+    --background: #121212;
+    --surface: #1E1E1E;
+    --text: #FFFFFF;
+    --secondary: #BB86FC;
+    --success: #4CAF50;
+    --border-color: #333;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--background);
+    color: var(--text);
+    margin: 0;
+    padding: 2rem;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+h1, h2 {
+    font-family: 'Poppins', sans-serif;
+}
+
+.card {
+    background-color: var(--surface);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border: 1px solid var(--border-color);
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+input[type="text"],
+textarea,
+select {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--background);
+    border: 1px solid var(--border-color);
+    color: var(--text);
+    border-radius: 4px;
+    box-sizing: border-box; /* Important pour que le padding n'augmente pas la largeur */
+}
+
+input[type="file"] {
+    padding: 0.5rem;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0052a3;
+}
+
+#creations-list .creation-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+#creations-list .creation-item:last-child {
+    border-bottom: none;
+}
+
+.creation-item-info {
+    flex-grow: 1;
+}
+
+.creation-item-info span {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    margin-left: 1rem;
+    background-color: var(--background);
+}
+
+.btn-delete {
+    background-color: #e53935;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}

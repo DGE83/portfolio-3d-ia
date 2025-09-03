@@ -1,0 +1,22 @@
+{
+  "name": "portfolio-3d-ia",
+  "version": "1.0.0",
+  "description": "Portfolio pour créations 3D et IA avec un panneau d'administration local.",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "nodemon server/server.js",
+    "db:init": "node database/init.js",
+    "build": "node scripts/build.js"
+  },
+  "author": "Votre Nom",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "multer": "^1.4.5-lts.1",
+    "sqlite3": "^5.1.6"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
