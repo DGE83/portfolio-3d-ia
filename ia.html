@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA - Portfolio 3D & IA de Votre Nom</title>
+    <meta name="description" content="Découvrez mes créations 3D avec Blender et Fusion 360, et mes projets visuels générés par Intelligence Artificielle.">
+    <meta name="keywords" content="portfolio, 3d, blender, fusion 360, ia, intelligence artificielle, artiste 3d">
+    <meta name="author" content="Votre Nom">
+    <meta property="og:title" content="IA - Portfolio 3D & IA de Votre Nom">
+    <meta property="og:description" content="Découvrez mes créations 3D avec Blender et Fusion 360, et mes projets visuels générés par Intelligence Artificielle.">
+    <meta property="og:type" content="website">
+
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Votre Nom",
+      "url": "https://DGE83.github.io",
+      "description": "Découvrez mes créations 3D avec Blender et Fusion 360, et mes projets visuels générés par Intelligence Artificielle."
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/lightgallery.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo">Votre Nom</div>
+        <nav class="main-nav"><a href="index.html" class="">Accueil</a>
+<a href="fusion360.html" class="">Fusion 360</a>
+<a href="blender.html" class="">Blender</a>
+<a href="ia.html" class="active">IA</a>
+<a href="contact.html" class="">Contact</a></nav>
+    </header>
+    <main class="container"><h1>Galerie IA</h1><div class="gallery-grid" id="gallery-container"></div></main><script src="js/lightgallery.min.js"></script><script src="plugins/lg-thumbnail.min.js"></script><script src="plugins/lg-zoom.min.js"></script><script src="js/three/three.min.js"></script><script src="js/three/STLLoader.js"></script><script src="js/three/OrbitControls.js"></script><script src="js/viewer3d.js"></script><script>
+        const galleryContainer = document.getElementById('gallery-container');
+        if (galleryContainer) {
+            lightGallery(galleryContainer, { plugins: [lgZoom, lgThumbnail], selector: '.gallery-item', download: false });
+        }
+    </script></body></html>
