@@ -1,4 +1,5 @@
 {
+  "homepage": "https://DGE83.github.io/portfolio-3d-ia",
   "name": "portfolio-3d-ia",
   "version": "1.0.0",
   "description": "Portfolio pour créations 3D et IA avec un panneau d'administration local.",
@@ -7,7 +8,8 @@
     "start": "node server/server.js",
     "dev": "nodemon server/server.js",
     "db:init": "node database/init.js",
-    "build": "node scripts/build.js"
+    "build": "node scripts/build.js",
+    "deploy": "gh-pages -d public"
   },
   "author": "Votre Nom",
   "license": "ISC",
@@ -17,6 +19,7 @@
     "sqlite3": "^5.1.6"
   },
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "nodemon": "^3.0.1"
   }
 }
