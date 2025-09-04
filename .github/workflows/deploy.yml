@@ -12,6 +12,11 @@ permissions:
 
 jobs:
   build-and-deploy:
+    # --- AJOUT DE CE BLOC ---
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    # --- FIN DE L'AJOUT ---
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
