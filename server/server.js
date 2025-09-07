@@ -26,8 +26,17 @@ const storage = multer.diskStorage({
     },
     filename: function (req, file, cb) {
         const uniquePrefix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-        cb(null, uniquePrefix + '-' + file.originalname);
-    }
+        
+        // Nettoyage et "sanétisation" du nom de fichier original
+        const sanitizedFilename = file.originalname
+            .toLowerCase() // 1. Tout mettre en minuscules
+            .replace(/\s+/g, '-') // 2. Remplacer les espaces par des tirets
+            .replace(/[éèêë]/g, 'e') // Remplacer les caractères accentués (exemple)
+            .replace(/[^a-z0-9-.]/g, ''); // 3. Supprimer tous les caractères non autorisés (sauf lettres, chiffres, tirets et points)
+        
+        cb(null, uniquePrefix + '-' + sanitizedFilename);
+        
+        }
 });
 const upload = multer({ storage: storage });
 
@@ -68,7 +77,7 @@ app.post('/api/creations', upload.single('file'), (req, res) => {
     if (!title || !description || !category || !file) {
         return res.status(400).json({ error: "Tous les champs sont requis." });
     }
-    const filePath = `/assets/${category}/${file.filename}`;
+    const filePath = `assets/${category}/${file.filename}`;
     const fileExtension = path.extname(file.originalname).toLowerCase();
     let fileType;
     if (['.jpg', '.jpeg', '.png', '.gif'].includes(fileExtension)) fileType = 'image';
