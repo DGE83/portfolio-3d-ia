@@ -20,7 +20,7 @@ const generateHtmlHeader = (pageTitle, currentPage) => {
     const siteName = "Portfolio 3D & IA de Votre Nom";
     const siteDescription = "Découvrez mes créations 3D avec Blender et Fusion 360, et mes projets visuels générés par Intelligence Artificielle.";
     const siteKeywords = "portfolio, 3d, blender, fusion 360, ia, intelligence artificielle, artiste 3d";
-    const authorName = "Votre Nom"; // Mettez votre nom ici
+    const authorName = "DGE 83"; // Mettez votre nom ici
 
     const navLinks = [
         { href: 'index.html', text: 'Accueil' }, { href: 'fusion360.html', text: 'Fusion 360' },
@@ -138,7 +138,13 @@ const generatePages = (creations) => {
     const iaCreations = creations.filter(c => c.category === 'ia');
     const recentCreations = creations.slice(0, 4);
 
-    const homeHtml = `${generateHtmlHeader('Accueil', 'index.html')}<h1>Nouveau et débutant...</h1><h2>Dernières créations</h2><div class="gallery-grid" id="gallery-container">${recentCreations.map(c => generateCreationCard(c, true)).join('\n')}</div>${generateHtmlFooter()}`;
+    // DANS la fonction generatePages, remplacez la ligne const homeHtml par celle-ci :
+const homeHtml = `${generateHtmlHeader('Accueil', 'index.html')}
+    <h1>MON PORTFOLIO</h1>
+    <p>Passionné par la création numérique, je me suis lancé en autodidacte dans l'univers fascinant de la modélisation 3D sur Fusion 360 et Blender. En parallèle, j'explore le potentiel de l'intelligence artificielle pour générer des visuels uniques et percutants. Vous découvrirez ici la vitrine de mes premières réalisations, le début d'une aventure créative en constante évolution.</p>
+    <h2>Dernières créations</h2>
+    <div class="gallery-grid" id="gallery-container">${recentCreations.map(c => generateCreationCard(c, true)).join('\n')}</div>
+    ${generateHtmlFooter()}`;
     fs.writeFileSync(path.join(publicDir, 'index.html'), homeHtml);
 
     const fusionHtml = `${generateHtmlHeader('Fusion 360', 'fusion360.html')}<h1>Galerie Technique - Fusion 360</h1><div class="gallery-grid" id="gallery-container">${fusionCreations.map(c => generateCreationCard(c, false)).join('\n')}</div>${generateHtmlFooter()}`;
