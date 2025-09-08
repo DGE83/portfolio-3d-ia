@@ -16,11 +16,10 @@ const db = new sqlite3.Database(dbPath, (err) => {
 // --- FONCTIONS DE GÉNÉRATION HTML ---
 
 const generateHtmlHeader = (pageTitle, currentPage) => {
-    // À PERSONNALISER
-    const siteName = "Portfolio 3D & IA de Votre Nom";
+    const siteName = "Portfolio 3D & IA de DGE83";
     const siteDescription = "Découvrez mes créations 3D avec Blender et Fusion 360, et mes projets visuels générés par Intelligence Artificielle.";
     const siteKeywords = "portfolio, 3d, blender, fusion 360, ia, intelligence artificielle, artiste 3d";
-    const authorName = "DGE 83"; // Mettez votre nom ici
+    const authorName = "DGE83";
 
     const navLinks = [
         { href: 'index.html', text: 'Accueil' }, { href: 'fusion360.html', text: 'Fusion 360' },
@@ -138,9 +137,10 @@ const generatePages = (creations) => {
     const iaCreations = creations.filter(c => c.category === 'ia');
     const recentCreations = creations.slice(0, 4);
 
-    // DANS la fonction generatePages, remplacez la ligne const homeHtml par celle-ci :
+    // MODIFIEZ VOS TEXTES ICI
+    // DANS la fonction generatePages
 const homeHtml = `${generateHtmlHeader('Accueil', 'index.html')}
-    <h1>MON PORTFOLIO</h1>
+    <h1>Portfolio Créatif : 3D & IA</h1>
     <p>Passionné par la création numérique, je me suis lancé en autodidacte dans l'univers fascinant de la modélisation 3D sur Fusion 360 et Blender. En parallèle, j'explore le potentiel de l'intelligence artificielle pour générer des visuels uniques et percutants. Vous découvrirez ici la vitrine de mes premières réalisations, le début d'une aventure créative en constante évolution.</p>
     <h2>Dernières créations</h2>
     <div class="gallery-grid" id="gallery-container">${recentCreations.map(c => generateCreationCard(c, true)).join('\n')}</div>
@@ -156,7 +156,7 @@ const homeHtml = `${generateHtmlHeader('Accueil', 'index.html')}
     const iaHtml = `${generateHtmlHeader('IA', 'ia.html')}<h1>Galerie IA</h1><div class="gallery-grid" id="gallery-container">${iaCreations.map(c => generateCreationCard(c, true)).join('\n')}</div>${generateHtmlFooter()}`;
     fs.writeFileSync(path.join(publicDir, 'ia.html'), iaHtml);
 
-    const contactHtml = `${generateHtmlHeader('Contact', 'contact.html')}<h1>Contactez-moi</h1><form action="https://formspree.io/f/xgvllgdw" method="POST" class="contact-form"><div class="form-group"><label for="name">Nom</label><input type="text" name="name" id="name" required></div><div class="form-group"><label for="email">Email</label><input type="email" name="email" id="email" required></div><div class="form-group"><label for="subject">Sujet</label><input type="text" name="subject" id="subject" required></div><div class="form-group"><label for="message">Message</label><textarea name="message" id="message" rows="6" required></textarea></div><button type="submit" class="btn-primary">Envoyer</button></form>${generateHtmlFooter()}`;
+    const contactHtml = `${generateHtmlHeader('Contact', 'contact.html')}<h1>Contactez-moi</h1><p>Une question, une proposition de projet ou simplement envie de discuter ? N'hésitez pas à utiliser le formulaire ci-dessous.</p><form action="https://formspree.io/f/xgvllgdw" method="POST" class="contact-form"><div class="form-group"><label for="name">Nom</label><input type="text" name="name" id="name" required></div><div class="form-group"><label for="email">Email</label><input type="email" name="email" id="email" required></div><div class="form-group"><label for="subject">Sujet</label><input type="text" name="subject" id="subject" required></div><div class="form-group"><label for="message">Message</label><textarea name="message" id="message" rows="6" required></textarea></div><button type="submit" class="btn-primary">Envoyer</button></form>${generateHtmlFooter()}`;
     fs.writeFileSync(path.join(publicDir, 'contact.html'), contactHtml);
 };
 
