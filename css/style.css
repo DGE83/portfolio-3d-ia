@@ -109,14 +109,14 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden; /* Assurez-vous que rien ne déborde */
+    overflow: hidden;
 }
 
 .card-thumbnail img, .card-thumbnail video {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    object-position: center; /* Centrer l'image ou la vidéo */
+    object-position: center;
 }
 
 .stl-placeholder {
@@ -173,34 +173,15 @@ a:hover {
     background-color: #0052a3;
 }
 
-/* --- RESPONSIVE DESIGN --- */
-@media (max-width: 768px) {
-    .main-header {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    .main-nav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.5rem;
-    }
-    .main-nav a {
-        margin-left: 0.5rem;
-    }
-    .container {
-        padding: 1rem;
-    }
-     /* --- MODALE POUR LA VISIONNEUSE STL --- */
+/* --- MODALE POUR LA VISIONNEUSE STL --- */
 #stl-viewer-modal {
-    display: none; /* Cachée par défaut */
+    display: none;
     position: fixed;
     z-index: 1000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
     background-color: rgba(0,0,0,0.8);
     align-items: center;
     justify-content: center;
@@ -220,38 +201,91 @@ a:hover {
 }
 
 .close-button {
-    color: #aaa;
     position: absolute;
-    top: 10px;
-    right: 25px;
-    font-size: 28px;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
     font-weight: bold;
+    transition: 0.3s;
     cursor: pointer;
+    z-index: 1001;
+    text-shadow: 0 0 8px black;
 }
 
-.close-button:hover,
-.close-button:focus {
-    color: white;
+.close-button:hover {
+    color: #bbb;
 }
 
 #viewer-container {
-    flex-grow: 1; /* Le conteneur 3D prend toute la place disponible */
-    width: 100%;
-    height: calc(100% - 60px); /* Hauteur moins la barre de contrôles */
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #121212;
+    position: relative;
+    overflow: hidden;
+}
+
+#viewer-container canvas {
+    display: block;
 }
 
 .controls-panel {
-    padding-top: 10px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: #222;
+    border-top: 1px solid #333;
 }
 
 .controls-panel button {
-    background-color: var(--primary);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin: 0 10px;
-    border-radius: 4px;
+    background-color: #333;
+    color: #eee;
+    border: 1px solid #555;
+    padding: 8px 15px;
+    border-radius: 5px;
     cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease;
 }
+
+.controls-panel button:hover {
+    background-color: #555;
+}
+
+/* --- CORRECTIONS POUR LIGHTGALLERY (IMAGES & VIDEOS) --- */
+.lg-video-cont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.lg-video-cont video {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .main-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    .main-nav a {
+        margin-left: 0.5rem;
+    }
+    .container {
+        padding: 1rem;
+    }
 }
