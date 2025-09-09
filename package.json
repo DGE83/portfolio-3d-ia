@@ -6,9 +6,10 @@
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
-    "dev": "nodemon server/server.js",
-    "db:init": "node database/init.js",
     "build": "node scripts/build.js",
+    "watch:build": "nodemon --watch frontend_src -e js,json,css,html,stl,mp4,jpg,png,jpeg,gif --exec \"npm run build\"",
+    "serve": "live-server public --port=8080",
+    "dev": "npm run build && concurrently \"npm:watch:build\" \"npm:serve\"",       
     "deploy": "gh-pages -d public"
   },
   "author": "Votre Nom",
@@ -19,7 +20,9 @@
     "sqlite3": "^5.1.6"
   },
   "devDependencies": {
-    "gh-pages": "^6.3.0",
-    "nodemon": "^3.0.1"
+    "concurrently": "^8.2.2",
+    "gh-pages": "^6.1.1",
+    "live-server": "^1.2.2",
+    "nodemon": "^3.1.0"
   }
 }
